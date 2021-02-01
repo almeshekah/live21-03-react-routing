@@ -7,7 +7,7 @@ import { Redirect } from "react-router-dom";
 
 
 const App = ({ instructors }) => {
-  const homemadeRouter = () => {
+  /*const homemadeRouter = () => {
     switch (currentPage) {
       case "/":
         return <Home instructors={instructors} goTo={setCurrentPage} />;
@@ -45,7 +45,7 @@ const App = ({ instructors }) => {
       default:
         setCurrentPage("/404");
         break;
-    }
+  }};*/
   
   return (
     <AppWrapper> 
