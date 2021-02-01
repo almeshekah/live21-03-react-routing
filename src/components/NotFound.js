@@ -1,12 +1,13 @@
-import { Link } from "react-router-dom";
 import { Button } from "./styles";
-const NotFound = ({ goTo }) => (
+import { Link } from "react-router-dom";
+
+const NotFound = () => (
   <>
     <h2>404 this page does not exist!</h2>
     <Link exact to="/">
       <Button>Go back home!</Button>
     </Link>
-</>
+  </>
 );
 
-export default NotFound;
+export default NotFound

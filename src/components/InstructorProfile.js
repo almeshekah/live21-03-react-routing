@@ -1,7 +1,9 @@
-import { Link,Redirect } from "react-router-dom";
 import { Button, ButtonsWrapper } from "./styles";
+import {useParams} from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
-const InstructorProfile = ({ instructors, instructorSlug,  }) => {
+
+const InstructorProfile = ({ instructors }) => {
   const {nameSlug} = useParams();
   const instructor = instructors.find(
     (instructor) => instructor.slug === nameSlug

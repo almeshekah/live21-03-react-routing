@@ -1,5 +1,7 @@
 import { GoToProfile, TagWrapper, Emoji, Name } from "./styles";
 import { Link } from "react-router-dom";
+
+
 const InstructorTag = ({ instructor }) => {
   const { emoji, name, slug } = instructor;
 

@@ -5,12 +5,50 @@ import NotFound from "./components/NotFound";
 import {Switch, Route} from "react-router";
 import { Redirect } from "react-router-dom";
 
-const App = ({ instructors }) => {
- 
-  
 
-  return( 
-    <AppWrapper>
+const App = ({ instructors }) => {
+  const homemadeRouter = () => {
+    switch (currentPage) {
+      case "/":
+        return <Home instructors={instructors} goTo={setCurrentPage} />;
+
+      case "/instructors/hamza":
+        return (
+          <InstructorProfile
+            instructors={instructors}
+            instructorSlug="hamza"
+            goTo={setCurrentPage}
+          />
+        );
+
+      case "/instructors/laila":
+        return (
+          <InstructorProfile
+            instructors={instructors}
+            instructorSlug="laila"
+            goTo={setCurrentPage}
+          />
+        );
+
+      case "/instructors/hasan":
+        return (
+          <InstructorProfile
+            instructors={instructors}
+            instructorSlug="hasan"
+            goTo={setCurrentPage}
+          />
+        );
+
+      case "/404":
+        return <NotFound goTo={setCurrentPage} />;
+
+      default:
+        setCurrentPage("/404");
+        break;
+    }
+  
+  return (
+    <AppWrapper> 
       <Switch>
         <Route exact path = "/">
           <Home instructors={instructors}/>
