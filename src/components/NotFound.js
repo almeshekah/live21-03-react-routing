@@ -3,10 +3,10 @@ import { Button } from "./styles";
 const NotFound = ({ goTo }) => (
   <>
     <h2>404 this page does not exist!</h2>
-    <Link to = "/">
+    <Link exact to="/">
       <Button>Go back home!</Button>
     </Link>
-  </>
+</>
 );
 
 export default NotFound;

@@ -2,15 +2,16 @@ import { Link,Redirect } from "react-router-dom";
 import { Button, ButtonsWrapper } from "./styles";
 
 const InstructorProfile = ({ instructors, instructorSlug,  }) => {
+  const {nameSlug} = useParams();
   const instructor = instructors.find(
-    (instructor) => instructor.slug === instructorSlug
+    (instructor) => instructor.slug === nameSlug
   );
-
-  if (!instructor) {return <Redirect to ="/"/>;}
 
   const { name, emoji, github, description } = instructor;
 
   const goToGitHub = () => window.open(`https://github.com/${github}`);
+
+  if (!instructor) return <Redirect to="/404"/>;
 
   return (
     <>
@@ -19,7 +20,7 @@ const InstructorProfile = ({ instructors, instructorSlug,  }) => {
       <p>{description}</p>
 
       <ButtonsWrapper>
-        <Link to="/" >
+        <Link exact to="/">
           <Button color="tomato" textColor="white">
             Go back home
           </Button>
