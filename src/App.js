@@ -3,6 +3,7 @@ import Home from "./components/Home";
 import InstructorProfile from "./components/InstructorProfile";
 import NotFound from "./components/NotFound";
 import { useState } from "react";
+import { Route, Switch } from "react-router";
 
 const App = ({ instructors }) => {
   const [currentPage, setCurrentPage] = useState("/");
@@ -48,7 +49,54 @@ const App = ({ instructors }) => {
     }
   };
 
-  return <AppWrapper>{homemadeRouter()}</AppWrapper>;
+  return( 
+    <AppWrapper>
+      <Switch>
+        <Route path="/">
+
+         <Home instructors={instructors} goTo={setCurrentPage} />
+        </Route>
+        <Route path = "/instructors/hamza">
+          <InstructorProfile
+                instructors={instructors}
+                instructorSlug="hamza"
+                
+         />
+
+        </Route>
+
+        <Route path = "/instructors/hamza">
+          <InstructorProfile
+                instructors={instructors}
+                instructorSlug="laila"
+                
+          />
+        </Route>
+
+        <Route path="/instructors/hamza">
+          <InstructorProfile
+                instructors={instructors}
+                instructorSlug="hasan"
+                
+        />
+        </Route>
+
+        <Route path="/404">
+        <NotFound  />
+
+        </Route>
+        
+
+
+
+      
+
+
+
+
+      </Switch>
+    </AppWrapper>
+  );
 };
 
 export default App;
